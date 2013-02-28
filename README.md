@@ -6,4 +6,4 @@ guice-config
 
     Modules.override(module).with(PrefesModule.system("/path/to/prefs"));
   
-You can use it along with my [preferd](https://github.com/shakiba/preferd) project to manage deployment configurations.   
+It can be used along with [preferd](https://github.com/shakiba/preferd) to manage configurations injected by guice.
