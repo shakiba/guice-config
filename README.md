@@ -1,6 +1,6 @@
 Guice Config
 ============
-Reading guice configs from JNDI, Java Preferences, etc.
+Reading Guice configs from JNDI, Java Preferences, etc.
 
 #### Usage
 
