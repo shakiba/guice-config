@@ -20,6 +20,6 @@ It can be used along with [preferd](https://github.com/shakiba/preferd) to manag
 <dependency>
     <groupId>me.shakiba.guice-config</groupId>
     <artifactId>guice-config</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.1</version>
 </dependency>
 ```
