@@ -9,7 +9,7 @@
 
     <groupId>me.shakiba.guice-config</groupId>
     <artifactId>guice-config</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>guice-config</name>
     <description />
