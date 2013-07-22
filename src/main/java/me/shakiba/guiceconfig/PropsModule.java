@@ -24,21 +24,18 @@ public class PropsModule extends AbstractModule {
     public PropsModule(File file) throws FileNotFoundException, IOException {
         Properties properties = new Properties();
         properties.load(new FileReader(file));
-        install(new PropsModule(properties));
         this.props = properties;
     }
 
     public PropsModule(InputStream in) throws IOException {
         Properties properties = new Properties();
         properties.load(in);
-        install(new PropsModule(properties));
         this.props = properties;
     }
 
     public PropsModule(Reader reader) throws IOException {
         Properties properties = new Properties();
         properties.load(reader);
-        install(new PropsModule(properties));
         this.props = properties;
     }
 
@@ -84,7 +81,11 @@ public class PropsModule extends AbstractModule {
 
         @Override
         public Integer get() {
-            return Integer.parseInt(props.getProperty(key, "0"));
+            String value = props.getProperty(key, "0");
+            if (value.isEmpty()) {
+                value = "0";
+            }
+            return Integer.parseInt(value);
         }
     }
 
@@ -97,7 +98,11 @@ public class PropsModule extends AbstractModule {
 
         @Override
         public Long get() {
-            return Long.parseLong(props.getProperty(key, "0"));
+            String value = props.getProperty(key, "0");
+            if (value.isEmpty()) {
+                value = "0";
+            }
+            return Long.parseLong(value);
         }
     }
 
@@ -110,7 +115,11 @@ public class PropsModule extends AbstractModule {
 
         @Override
         public Float get() {
-            return Float.parseFloat(props.getProperty(key, "0"));
+            String value = props.getProperty(key, "0");
+            if (value.isEmpty()) {
+                value = "0";
+            }
+            return Float.parseFloat(value);
         }
     }
 
@@ -123,7 +132,11 @@ public class PropsModule extends AbstractModule {
 
         @Override
         public Double get() {
-            return Double.parseDouble(props.getProperty(key, "0"));
+            String value = props.getProperty(key, "0");
+            if (value.isEmpty()) {
+                value = "0";
+            }
+            return Double.parseDouble(value);
         }
     }
 
@@ -136,7 +149,11 @@ public class PropsModule extends AbstractModule {
 
         @Override
         public Boolean get() {
-            return Boolean.parseBoolean(props.getProperty(key, "false"));
+            String value = props.getProperty(key, "0");
+            if (value.isEmpty()) {
+                value = "false";
+            }
+            return Boolean.parseBoolean(value);
         }
     }
 }
