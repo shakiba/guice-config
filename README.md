@@ -4,16 +4,29 @@ Reading Guice configs from JNDI, Java Preferences, etc.
 
 #### Usage
 
+Load configs:
 ```java
 // Java Preferences
-Modules.override(module).with(PrefesModule.system("/path/to/prefs"));
+Module conf = PrefesModule.system("/path/to/prefs");
 
 // JNDI
-Modules.override(module).with(new JndiModule());
+Module conf = new JndiModule();
 
 // Properties
-Modules.override(module).with(new PropsModule(properties));
+Module conf = new PropsModule(properties);
+```
 
+Install them:
+```java
+protected void configure() {
+    install(conf);
+    ...
+}
+```
+
+Or push them:
+```java
+Modules.override(mainModule).with(config);
 ```
 
 #### Maven
@@ -22,6 +35,6 @@ Modules.override(module).with(new PropsModule(properties));
 <dependency>
     <groupId>me.shakiba.guice-config</groupId>
     <artifactId>guice-config</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.4</version>
 </dependency>
 ```
