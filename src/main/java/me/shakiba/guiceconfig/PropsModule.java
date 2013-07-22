@@ -1,5 +1,11 @@
 package me.shakiba.guiceconfig;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Reader;
 import java.util.Enumeration;
 import java.util.Properties;
 
@@ -13,6 +19,27 @@ public class PropsModule extends AbstractModule {
 
     public PropsModule(Properties props) {
         this.props = props;
+    }
+
+    public PropsModule(File file) throws FileNotFoundException, IOException {
+        Properties properties = new Properties();
+        properties.load(new FileReader(file));
+        install(new PropsModule(properties));
+        this.props = properties;
+    }
+
+    public PropsModule(InputStream in) throws IOException {
+        Properties properties = new Properties();
+        properties.load(in);
+        install(new PropsModule(properties));
+        this.props = properties;
+    }
+
+    public PropsModule(Reader reader) throws IOException {
+        Properties properties = new Properties();
+        properties.load(reader);
+        install(new PropsModule(properties));
+        this.props = properties;
     }
 
     @Override
