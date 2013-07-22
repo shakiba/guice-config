@@ -10,9 +10,11 @@ Modules.override(module).with(PrefesModule.system("/path/to/prefs"));
 
 // JNDI
 Modules.override(module).with(new JndiModule());
-```
 
-It can be used along with [preferd](https://github.com/shakiba/preferd) to manage configurations injected by guice.
+// Properties
+Modules.override(module).with(new PropsModule(properties));
+
+```
 
 #### Maven
 
@@ -20,6 +22,6 @@ It can be used along with [preferd](https://github.com/shakiba/preferd) to manag
 <dependency>
     <groupId>me.shakiba.guice-config</groupId>
     <artifactId>guice-config</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 </dependency>
 ```
