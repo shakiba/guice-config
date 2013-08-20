@@ -1,6 +1,6 @@
 Guice Config
 ============
-Reading Guice configs from JNDI, Java Preferences, etc.
+Reading externalized primitive configurations in Guice apps.
 
 #### Usage
 
@@ -12,7 +12,7 @@ Module conf = PrefesModule.system("/path/to/prefs");
 // JNDI
 Module conf = new JndiModule();
 
-// Properties
+// Properties (file)
 Module conf = new PropsModule(properties);
 ```
 
