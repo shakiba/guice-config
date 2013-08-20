@@ -29,6 +29,12 @@ Or push them:
 Modules.override(mainModule).with(config);
 ```
 
+Then use them:
+```java
+    @Inject @Named("foo")
+    private String foo;
+```
+
 #### Maven
 
 ```xml
